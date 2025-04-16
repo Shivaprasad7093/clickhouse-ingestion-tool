@@ -1,13 +1,68 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
-<head><title>Upload CSV</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload CSV to ClickHouse</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .upload-container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      background-color: #0077cc;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
 <body>
-  <h1>Upload CSV to ClickHouse</h1>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
-    <input type="submit" value="Upload" />
-  </form>
+  <div class="upload-container">
+    <h1>📤 Upload CSV to ClickHouse</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".csv" required />
+      <br />
+      <input type="submit" value="Upload File" />
+    </form>
+  </div>
 </body>
 </html>
-
