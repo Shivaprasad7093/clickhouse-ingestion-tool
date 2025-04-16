@@ -1,23 +1,13 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ClickHouse ↔ Flat File Tool</title>
-</head>
+<head><title>Upload CSV</title></head>
 <body>
-  <h1>Ingest Flat File → ClickHouse</h1>
+  <h1>Upload CSV to ClickHouse</h1>
   <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" required />
-    <button type="submit">Upload</button>
-  </form>
-
-  <h1>Export ClickHouse → Flat File</h1>
-  <form action="/ch_to_flat" method="post">
-    <input name="host" placeholder="Host" required>
-    <input name="database" placeholder="Database" required>
-    <input name="user" placeholder="User" required>
-    <input name="token" placeholder="JWT Token" required>
-    <input name="table" placeholder="Table Name" required>
-    <button type="submit">Export</button>
+    <input type="file" name="file" />
+    <input type="submit" value="Upload" />
   </form>
 </body>
 </html>
+

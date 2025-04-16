@@ -1,0 +1,23 @@
+# prompts.txt - Example prompts & commands for ClickHouse Ingestion Tool
+
+# Upload a CSV file and preview the content
+> Upload "uk_price_paid.csv" and show column headers and first 10 rows
+
+# Ingest the file into ClickHouse
+> Insert "uk_price_paid.csv" into ClickHouse table 'price_paid'
+
+# Connect to ClickHouse server
+> Connect to ClickHouse using:
+  Host: localhost
+  Port: 8123
+  User: default
+  Password: (empty)
+
+# Preview schema of file before uploading
+> Show schema for "ontime_sample.csv"
+
+# Upload and visualize columns
+> Upload "ontime.csv", show all column names and data types
+
+# Insert and confirm
+> Upload "test.csv", preview, and then insert into ClickHouse table 'flights_data'

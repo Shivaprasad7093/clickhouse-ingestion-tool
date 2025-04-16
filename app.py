@@ -17,14 +17,24 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
+    if 'file' not in request.files:
+        return "No file part", 400
     file = request.files['file']
-    if file:
-        filepath = os.path.join(UPLOAD_FOLDER, file.filename)
-        file.save(filepath)
+    if file.filename == '':
+        return "No selected file", 400
+
+    filepath = os.path.join(UPLOAD_FOLDER, file.filename)
+    file.save(filepath)
+
+    try:
         df = pd.read_csv(filepath)
-        columns = df.columns.tolist()
-        return render_template('preview.html', columns=columns, filename=file.filename)
-    return "No file"
+        columns = list(df.columns)
+        rows = df.head(10).values.tolist()  # 👈 Show first 10 rows
+        return render_template('preview.html', columns=columns, rows=rows, filename=file.filename)
+    except Exception as e:
+        return f"Failed to process file: {e}", 500
+
+
 
 @app.route('/ingest_flat_to_ch', methods=['POST'])
 def flat_to_ch():
@@ -65,4 +75,5 @@ def ch_to_flat():
     return send_file(filename, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
+

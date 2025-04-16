@@ -1,0 +1,4 @@
+flight_date,airline,origin,dest,dep_delay,arr_delay
+2023-01-01,AA,JFK,LAX,12,5
+2023-01-02,DL,ATL,SFO,0,-3
+2023-01-03,UA,ORD,SEA,-5,0
